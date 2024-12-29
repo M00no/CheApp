@@ -2,9 +2,9 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Compile Update="CalculateOxygenMenu.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="MainMenu.cs">
+    <Compile Update="ViewPort.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

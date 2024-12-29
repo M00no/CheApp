@@ -1,6 +1,6 @@
 ﻿namespace CheApp
 {
-    partial class MainMenu
+    partial class ViewPort
     {
         /// <summary>
         ///  Required designer variable.
@@ -32,11 +32,14 @@
             mmTitleTextBox = new TextBox();
             calculateExpensesButton = new Button();
             rentReservationButton = new Button();
+            panel1 = new Panel();
+            calculateOxygenMenu1 = new CalculateOxygenMenu();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // calculateOxygenButton
             // 
-            calculateOxygenButton.Location = new Point(173, 98);
+            calculateOxygenButton.Location = new Point(12, 77);
             calculateOxygenButton.Name = "calculateOxygenButton";
             calculateOxygenButton.Size = new Size(121, 42);
             calculateOxygenButton.TabIndex = 0;
@@ -59,7 +62,7 @@
             // 
             // calculateExpensesButton
             // 
-            calculateExpensesButton.Location = new Point(173, 146);
+            calculateExpensesButton.Location = new Point(12, 125);
             calculateExpensesButton.Name = "calculateExpensesButton";
             calculateExpensesButton.Size = new Size(121, 42);
             calculateExpensesButton.TabIndex = 2;
@@ -68,26 +71,46 @@
             // 
             // rentReservationButton
             // 
-            rentReservationButton.Location = new Point(173, 194);
+            rentReservationButton.Location = new Point(12, 173);
             rentReservationButton.Name = "rentReservationButton";
             rentReservationButton.Size = new Size(121, 56);
             rentReservationButton.TabIndex = 3;
             rentReservationButton.Text = "Make a rent reservation for government";
             rentReservationButton.UseVisualStyleBackColor = true;
             // 
-            // MainMenu
+            // panel1
+            // 
+            panel1.Controls.Add(calculateExpensesButton);
+            panel1.Controls.Add(rentReservationButton);
+            panel1.Controls.Add(mmTitleTextBox);
+            panel1.Controls.Add(calculateOxygenButton);
+            panel1.Dock = DockStyle.Left;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(160, 450);
+            panel1.TabIndex = 4;
+            // 
+            // calculateOxygenMenu1
+            // 
+            calculateOxygenMenu1.BackColor = SystemColors.Control;
+            calculateOxygenMenu1.Location = new Point(166, 12);
+            calculateOxygenMenu1.Name = "calculateOxygenMenu1";
+            calculateOxygenMenu1.Size = new Size(622, 426);
+            calculateOxygenMenu1.TabIndex = 5;
+            calculateOxygenMenu1.Visible = false;
+            // 
+            // ViewPort
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(rentReservationButton);
-            Controls.Add(calculateExpensesButton);
-            Controls.Add(mmTitleTextBox);
-            Controls.Add(calculateOxygenButton);
-            Name = "MainMenu";
+            Controls.Add(calculateOxygenMenu1);
+            Controls.Add(panel1);
+            Name = "ViewPort";
             Text = "Main Menu";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -96,5 +119,7 @@
         private TextBox mmTitleTextBox;
         private Button calculateExpensesButton;
         private Button rentReservationButton;
+        private Panel panel1;
+        private CalculateOxygenMenu calculateOxygenMenu1;
     }
 }

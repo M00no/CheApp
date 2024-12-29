@@ -21,6 +21,7 @@ namespace CheApp
             Type = type;
             Volume = volume;
             Capacity = capacity;
+
         }
 
         //private float GetExpensesPerHour()
