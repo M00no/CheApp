@@ -30,15 +30,17 @@
         {
             calculateOxygenButton = new Button();
             mmTitleTextBox = new TextBox();
+            calculateExpensesButton = new Button();
+            rentReservationButton = new Button();
             SuspendLayout();
             // 
             // calculateOxygenButton
             // 
-            calculateOxygenButton.Location = new Point(100, 87);
+            calculateOxygenButton.Location = new Point(173, 98);
             calculateOxygenButton.Name = "calculateOxygenButton";
-            calculateOxygenButton.Size = new Size(111, 23);
+            calculateOxygenButton.Size = new Size(121, 42);
             calculateOxygenButton.TabIndex = 0;
-            calculateOxygenButton.Text = "Calculate Oxygen";
+            calculateOxygenButton.Text = "Calculate Oxygen for room";
             calculateOxygenButton.UseVisualStyleBackColor = true;
             calculateOxygenButton.Click += calculateOxygenButton_Click;
             // 
@@ -47,7 +49,7 @@
             mmTitleTextBox.BorderStyle = BorderStyle.None;
             mmTitleTextBox.Cursor = Cursors.No;
             mmTitleTextBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            mmTitleTextBox.Location = new Point(100, 40);
+            mmTitleTextBox.Location = new Point(12, 12);
             mmTitleTextBox.Name = "mmTitleTextBox";
             mmTitleTextBox.ReadOnly = true;
             mmTitleTextBox.Size = new Size(131, 32);
@@ -55,15 +57,35 @@
             mmTitleTextBox.Text = "Main Menu";
             mmTitleTextBox.TextAlign = HorizontalAlignment.Center;
             // 
+            // calculateExpensesButton
+            // 
+            calculateExpensesButton.Location = new Point(173, 146);
+            calculateExpensesButton.Name = "calculateExpensesButton";
+            calculateExpensesButton.Size = new Size(121, 42);
+            calculateExpensesButton.TabIndex = 2;
+            calculateExpensesButton.Text = "Calculate Expenses for room";
+            calculateExpensesButton.UseVisualStyleBackColor = true;
+            // 
+            // rentReservationButton
+            // 
+            rentReservationButton.Location = new Point(173, 194);
+            rentReservationButton.Name = "rentReservationButton";
+            rentReservationButton.Size = new Size(121, 56);
+            rentReservationButton.TabIndex = 3;
+            rentReservationButton.Text = "Make a rent reservation for government";
+            rentReservationButton.UseVisualStyleBackColor = true;
+            // 
             // MainMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(rentReservationButton);
+            Controls.Add(calculateExpensesButton);
             Controls.Add(mmTitleTextBox);
             Controls.Add(calculateOxygenButton);
             Name = "MainMenu";
-            Text = "Form1";
+            Text = "Main Menu";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -72,5 +94,7 @@
 
         private Button calculateOxygenButton;
         private TextBox mmTitleTextBox;
+        private Button calculateExpensesButton;
+        private Button rentReservationButton;
     }
 }
