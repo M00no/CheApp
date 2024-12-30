@@ -97,7 +97,6 @@
             calculateOxygenMenu1.Name = "calculateOxygenMenu1";
             calculateOxygenMenu1.Size = new Size(622, 426);
             calculateOxygenMenu1.TabIndex = 5;
-            calculateOxygenMenu1.Visible = false;
             // 
             // ViewPort
             // 

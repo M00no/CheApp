@@ -48,5 +48,10 @@
                 roomInfoValueTextBox.Text = roomInfo;
             }
         }
+
+        private void refreshRoomsButton_Click(object sender, EventArgs e)
+        {
+            updateRoomListBox();
+        }
     }
 }

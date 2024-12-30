@@ -40,6 +40,7 @@
             calculateOxygenButton = new Button();
             roomInfoTextBox = new TextBox();
             roomInfoValueTextBox = new RichTextBox();
+            refreshRoomsButton = new Button();
             ((System.ComponentModel.ISupportInitialize)howLongInHoursNumeric).BeginInit();
             ((System.ComponentModel.ISupportInitialize)howManyPeopleNumeric).BeginInit();
             SuspendLayout();
@@ -111,7 +112,7 @@
             roomListBox.ItemHeight = 15;
             roomListBox.Location = new Point(24, 89);
             roomListBox.Name = "roomListBox";
-            roomListBox.Size = new Size(174, 139);
+            roomListBox.Size = new Size(174, 109);
             roomListBox.TabIndex = 14;
             roomListBox.SelectedIndexChanged += roomListBox_SelectedIndexChanged;
             // 
@@ -174,11 +175,22 @@
             roomInfoValueTextBox.TabIndex = 22;
             roomInfoValueTextBox.Text = "";
             // 
+            // refreshRoomsButton
+            // 
+            refreshRoomsButton.Location = new Point(24, 206);
+            refreshRoomsButton.Name = "refreshRoomsButton";
+            refreshRoomsButton.Size = new Size(75, 23);
+            refreshRoomsButton.TabIndex = 23;
+            refreshRoomsButton.Text = "Refresh";
+            refreshRoomsButton.UseVisualStyleBackColor = true;
+            refreshRoomsButton.Click += refreshRoomsButton_Click;
+            // 
             // CalculateOxygenMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
+            Controls.Add(refreshRoomsButton);
             Controls.Add(roomInfoValueTextBox);
             Controls.Add(roomInfoTextBox);
             Controls.Add(calculateOxygenButton);
@@ -213,5 +225,6 @@
         private Button calculateOxygenButton;
         private TextBox roomInfoTextBox;
         private RichTextBox roomInfoValueTextBox;
+        private Button refreshRoomsButton;
     }
 }

@@ -11,6 +11,8 @@ namespace CheApp
             if (!File.Exists("rooms.yaml"))
             {
                 List<Room> rooms = new List<Room>();
+                rooms.Add(new Room("Test", "P2.121", "Prisma", "room", 50, 50)); // delete later
+
                 var serializer = new SerializerBuilder()
                     .WithNamingConvention(CamelCaseNamingConvention.Instance)
                     .Build();
