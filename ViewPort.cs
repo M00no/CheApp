@@ -1,9 +1,14 @@
+using YamlDotNet.Serialization.NamingConventions;
+using YamlDotNet.Serialization;
+
 namespace CheApp
 {
     public partial class ViewPort : Form
     {
         public ViewPort()
         {
+            YAMLController.createRoomsYamlIfNotExists();
+
             InitializeComponent();
         }
 

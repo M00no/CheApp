@@ -11,17 +11,22 @@ namespace CheApp
         public string Name { get; set; }
         public string Index { get; set; }
         public string Type { get; set; }
+        public string Building { get; set; }
         public int Volume { get; set; }
         public int Capacity { get; set; }
 
-        public Room(string name, string index, string type, int volume, int capacity)
+        public Room()
+        {
+        }
+
+        public Room(string name, string index, string building, string type, int volume, int capacity)
         {
             Name = name;
             Index = index;
+            Building = building;
             Type = type;
             Volume = volume;
             Capacity = capacity;
-
         }
 
         //private float GetExpensesPerHour()

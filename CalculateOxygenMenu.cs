@@ -1,34 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace CheApp
+﻿namespace CheApp
 {
     public partial class CalculateOxygenMenu : UserControl
     {
-        List<Room> rooms = new List<Room>();
-
         public CalculateOxygenMenu()
         {
             InitializeComponent();
-
-            rooms.Add(new Room("TestRoom", "P", "room", 50, 60));
-            rooms.Add(new Room("TestRoom2", "S", "room", 20, 20));
-            rooms.Add(new Room("TestRoom3", "P", "room", 30, 40));
-
             updateRoomListBox();
         }
 
         private void updateRoomListBox()
         {
             roomListBox.Items.Clear();
-            foreach (Room room in rooms)
+            foreach (Room room in YAMLController.getListOfRooms())
             {
                 roomListBox.Items.Add(room.Name + " " + room.Index);
             }
@@ -38,7 +21,7 @@ namespace CheApp
         {
             if (roomListBox.SelectedIndex != -1)
             {
-                Room chosenRoom = rooms[roomListBox.SelectedIndex];
+                Room chosenRoom = YAMLController.getListOfRooms()[roomListBox.SelectedIndex];
                 String result = chosenRoom.CalculateUsedOxygen(
                     Convert.ToInt32(howManyPeopleNumeric.Value),
                     Convert.ToInt32(howLongInHoursNumeric.Value));
@@ -51,11 +34,12 @@ namespace CheApp
         {
             if (roomListBox.SelectedIndex != -1)
             {
-                Room chosenRoom = rooms[roomListBox.SelectedIndex];
+                Room chosenRoom = YAMLController.getListOfRooms()[roomListBox.SelectedIndex];
 
                 string roomInfo = $"""
                     Name: {chosenRoom.Name}
                     Index: {chosenRoom.Index}
+                    Building: {chosenRoom.Building}
                     Type: {chosenRoom.Type}
                     Volume: {chosenRoom.Volume}
                     Capacity: {chosenRoom.Capacity}
