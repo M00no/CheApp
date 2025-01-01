@@ -7,8 +7,6 @@ namespace CheApp
     {
         public ViewPort()
         {
-            YAMLController.createRoomsYamlIfNotExists();
-
             InitializeComponent();
         }
 
