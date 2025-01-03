@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CheApp
+﻿namespace CheApp
 {
     internal class Room
     {
@@ -14,12 +8,10 @@ namespace CheApp
         public string Building { get; set; }
         public int Volume { get; set; }
         public int Capacity { get; set; }
+        public int Price{ get; set; }
+        public int Expense { get; set; }
 
-        public Room()
-        {
-        }
-
-        public Room(string name, string index, string building, string type, int volume, int capacity)
+        public Room(string name, string index, string building, string type, int volume, int capacity, int price, int expense)
         {
             Name = name;
             Index = index;
@@ -27,6 +19,8 @@ namespace CheApp
             Type = type;
             Volume = volume;
             Capacity = capacity;
+            Price = price;
+            Expense = expense;
         }
 
         //private float GetExpensesPerHour()

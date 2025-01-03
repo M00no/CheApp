@@ -1,7 +1,9 @@
 {
   "profiles": {
     "CheApp": {
-      "commandName": "Project"
+      "commandName": "Project",
+      "workingDirectory": "C:\\Users\\arriv\\source\\repos\\CheApp\\WorkingDirectory",
+      "nativeDebugging": false
     }
   }
 }

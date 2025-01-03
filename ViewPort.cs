@@ -14,5 +14,10 @@ namespace CheApp
         {
             calculateOxygenMenu1.Show();
         }
+
+        private void settingsButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

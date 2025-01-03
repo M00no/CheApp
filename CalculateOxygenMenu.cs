@@ -1,4 +1,6 @@
-﻿namespace CheApp
+﻿using System.Reflection;
+
+namespace CheApp
 {
     public partial class CalculateOxygenMenu : UserControl
     {
@@ -11,9 +13,9 @@
         private void updateRoomListBox()
         {
             roomListBox.Items.Clear();
-            foreach (Room room in YAMLController.getListOfRooms())
+            foreach (KeyValuePair<string, Room> entry in Entities.rooms)
             {
-                roomListBox.Items.Add(room.Name + " " + room.Index);
+                roomListBox.Items.Add(entry.Key);
             }
         }
 
@@ -21,12 +23,16 @@
         {
             if (roomListBox.SelectedIndex != -1)
             {
-                Room chosenRoom = YAMLController.getListOfRooms()[roomListBox.SelectedIndex];
-                String result = chosenRoom.CalculateUsedOxygen(
+                string? selectedRoom = roomListBox.GetItemText(roomListBox.SelectedItem);
+                if (selectedRoom != null)
+                {
+                    Room chosenRoom = Entities.rooms[selectedRoom];
+                    String result = chosenRoom.CalculateUsedOxygen(
                     Convert.ToInt32(howManyPeopleNumeric.Value),
                     Convert.ToInt32(howLongInHoursNumeric.Value));
 
-                resultValueTextBox.Text = result;
+                    resultValueTextBox.Text = result;
+                }
             }
         }
 
@@ -34,23 +40,33 @@
         {
             if (roomListBox.SelectedIndex != -1)
             {
-                Room chosenRoom = YAMLController.getListOfRooms()[roomListBox.SelectedIndex];
+                string? selectedRoom = roomListBox.GetItemText(roomListBox.SelectedItem);
+                if (selectedRoom != null)
+                {
+                    Room chosenRoom = Entities.rooms[selectedRoom];
 
-                string roomInfo = $"""
-                    Name: {chosenRoom.Name}
-                    Index: {chosenRoom.Index}
-                    Building: {chosenRoom.Building}
-                    Type: {chosenRoom.Type}
-                    Volume: {chosenRoom.Volume}
-                    Capacity: {chosenRoom.Capacity}
-                    """;
+                    Type myType = chosenRoom.GetType();
+                    List<PropertyInfo> properties = new List<PropertyInfo>(myType.GetProperties());
 
-                roomInfoValueTextBox.Text = roomInfo;
+                    List<string> roomAttrs = [];
+
+                    foreach (PropertyInfo prop in properties)
+                    {
+                        string prop_name = prop.Name;
+                        var prop_value = prop.GetValue(chosenRoom, null);
+                        roomAttrs.Add(string.Format($"{prop_name}: {prop_value}"));
+                    }
+
+                    string roomInfo = string.Join("\n", roomAttrs);
+
+                    roomInfoValueTextBox.Text = roomInfo;
+                }
             }
         }
 
         private void refreshRoomsButton_Click(object sender, EventArgs e)
         {
+            Entities.init();
             updateRoomListBox();
         }
     }

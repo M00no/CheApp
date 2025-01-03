@@ -4,6 +4,9 @@
     <Compile Update="CalculateOxygenMenu.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="SettingsForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="ViewPort.cs">
       <SubType>Form</SubType>
     </Compile>
