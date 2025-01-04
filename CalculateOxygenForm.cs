@@ -2,9 +2,9 @@
 
 namespace CheApp
 {
-    public partial class CalculateOxygenMenu : UserControl
+    public partial class CalculateOxygenForm : UserControl
     {
-        public CalculateOxygenMenu()
+        public CalculateOxygenForm()
         {
             InitializeComponent();
             updateRoomListBox();
@@ -66,7 +66,6 @@ namespace CheApp
 
         private void refreshRoomsButton_Click(object sender, EventArgs e)
         {
-            Entities.init();
             updateRoomListBox();
         }
     }

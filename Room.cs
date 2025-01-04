@@ -10,8 +10,9 @@
         public int Capacity { get; set; }
         public int Price{ get; set; }
         public int Expense { get; set; }
+        public int Discount { get; set; }
 
-        public Room(string name, string index, string building, string type, int volume, int capacity, int price, int expense)
+        public Room(string name, string index, string building, string type, int volume, int capacity, int price, int expense, int discount)
         {
             Name = name;
             Index = index;
@@ -21,52 +22,8 @@
             Capacity = capacity;
             Price = price;
             Expense = expense;
+            Discount = discount;
         }
-
-        //private float GetExpensesPerHour()
-        //{
-        //    string expensePerHourString;
-
-        //    var yaml = File.ReadAllText("config.yaml");
-
-        //    var deserializer = new DeserializerBuilder().Build();
-        //    var res = deserializer.Deserialize<dynamic>(yaml);
-
-        //    if (Capacity == null)
-        //    {
-        //        expensePerHourString = res["expenses"][Index][Type]["expense"];
-        //    }
-        //    else
-        //    {
-        //        expensePerHourString = res["expenses"][Index][Type]["capacity"][Capacity.ToString()]["expense"];
-        //    }
-
-        //    return float.Parse(expensePerHourString);
-        //}
-
-        //private float GetRentPricePerHour()
-        //{
-        //    var yaml = File.ReadAllText("config.yaml");
-
-        //    var deserializer = new DeserializerBuilder().Build();
-        //    var res = deserializer.Deserialize<dynamic>(yaml);
-
-        //    string rentPriceString = res["rentPrice"][Index][Type]["price"];
-
-        //    return float.Parse(rentPriceString);
-        //}
-
-        //private float GetDiscount()
-        //{
-        //    var yaml = File.ReadAllText("config.yaml");
-
-        //    var deserializer = new DeserializerBuilder().Build();
-        //    var res = deserializer.Deserialize<dynamic>(yaml);
-
-        //    string discountString = res["discount"];
-
-        //    return float.Parse(discountString);
-        //}
 
         public string CalculateUsedOxygen(int totalPeople, int durationInHour) // Calculates how much oxygen is used and is over
         {
