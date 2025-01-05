@@ -33,14 +33,14 @@
             howLongTextBox = new TextBox();
             howManyTextBox = new TextBox();
             chooseRoomTextBox = new TextBox();
-            roomListBox = new ListBox();
             howLongInHoursNumeric = new NumericUpDown();
             howManyPeopleNumeric = new NumericUpDown();
             titleTextBox = new TextBox();
             calculateOxygenButton = new Button();
             roomInfoTextBox = new TextBox();
             roomInfoValueTextBox = new RichTextBox();
-            refreshRoomsButton = new Button();
+            comboBox1 = new ComboBox();
+            comboBox2 = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)howLongInHoursNumeric).BeginInit();
             ((System.ComponentModel.ISupportInitialize)howManyPeopleNumeric).BeginInit();
             SuspendLayout();
@@ -111,17 +111,6 @@
             chooseRoomTextBox.Text = "Choose Room";
             chooseRoomTextBox.TextAlign = HorizontalAlignment.Center;
             // 
-            // roomListBox
-            // 
-            roomListBox.FormattingEnabled = true;
-            roomListBox.ItemHeight = 25;
-            roomListBox.Location = new Point(34, 148);
-            roomListBox.Margin = new Padding(4, 5, 4, 5);
-            roomListBox.Name = "roomListBox";
-            roomListBox.Size = new Size(247, 179);
-            roomListBox.TabIndex = 14;
-            roomListBox.SelectedIndexChanged += roomListBox_SelectedIndexChanged;
-            // 
             // howLongInHoursNumeric
             // 
             howLongInHoursNumeric.Location = new Point(431, 245);
@@ -187,23 +176,29 @@
             roomInfoValueTextBox.TabIndex = 22;
             roomInfoValueTextBox.Text = "";
             // 
-            // refreshRoomsButton
+            // comboBox1
             // 
-            refreshRoomsButton.Location = new Point(34, 343);
-            refreshRoomsButton.Margin = new Padding(4, 5, 4, 5);
-            refreshRoomsButton.Name = "refreshRoomsButton";
-            refreshRoomsButton.Size = new Size(107, 38);
-            refreshRoomsButton.TabIndex = 23;
-            refreshRoomsButton.Text = "Refresh";
-            refreshRoomsButton.UseVisualStyleBackColor = true;
-            refreshRoomsButton.Click += refreshRoomsButton_Click;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(46, 148);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(237, 33);
+            comboBox1.TabIndex = 24;
+            // 
+            // comboBox2
+            // 
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(46, 226);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(237, 33);
+            comboBox2.TabIndex = 25;
             // 
             // CalculateOxygenForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            Controls.Add(refreshRoomsButton);
+            Controls.Add(comboBox2);
+            Controls.Add(comboBox1);
             Controls.Add(roomInfoValueTextBox);
             Controls.Add(roomInfoTextBox);
             Controls.Add(calculateOxygenButton);
@@ -212,7 +207,6 @@
             Controls.Add(howLongTextBox);
             Controls.Add(howManyTextBox);
             Controls.Add(chooseRoomTextBox);
-            Controls.Add(roomListBox);
             Controls.Add(howLongInHoursNumeric);
             Controls.Add(howManyPeopleNumeric);
             Controls.Add(titleTextBox);
@@ -232,13 +226,13 @@
         private TextBox howLongTextBox;
         private TextBox howManyTextBox;
         private TextBox chooseRoomTextBox;
-        private ListBox roomListBox;
         private NumericUpDown howLongInHoursNumeric;
         private NumericUpDown howManyPeopleNumeric;
         private TextBox titleTextBox;
         private Button calculateOxygenButton;
         private TextBox roomInfoTextBox;
         private RichTextBox roomInfoValueTextBox;
-        private Button refreshRoomsButton;
+        private ComboBox comboBox1;
+        private ComboBox comboBox2;
     }
 }

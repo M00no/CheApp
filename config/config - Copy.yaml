@@ -1,0 +1,53 @@
+buildings: 
+  Prisma:
+    pricing:
+      discount: 20
+      room:
+        default: 1
+      workspace:
+        default: 2
+      public:
+        default: 3
+    expenses:
+      room:
+        default: 40
+        27: 21
+        60: 31
+      workspace:
+        default: 41
+    rooms:
+      - name: Test
+        index: P2.123
+        type: room
+        building: Prisma
+        volume: 100
+        capacity: 27
+      - name: Test2
+        index: P2.124
+        type: workspace
+        building: Prisma
+        volume: 200
+        capacity: 4
+  Spectrum:
+    pricing:
+      discount: 20
+      room:
+        default: 11
+      workspace:
+        default: 12
+      public:
+        default: 13
+    expenses:
+      room:
+        default: 41
+        27: 22
+        60: 32
+      workspace:
+        default: 42
+    rooms:
+      - name: Test2
+        index: S2.124
+        type: workspace
+        building: Spectrum
+        volume: 200
+        capacity: 4

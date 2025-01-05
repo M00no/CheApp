@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using YamlDotNet.Serialization.NamingConventions;
 using YamlDotNet.Serialization;
 using YamlDotNet.Core;
+using System.Configuration;
 
 namespace CheApp
 {
@@ -18,16 +19,26 @@ namespace CheApp
         public SettingsForm()
         {
             InitializeComponent();
-            updatBuildingListBox();
+            updateBuildingsListBox();
         }
 
-        private void updatBuildingListBox()
+        private void updateBuildingsListBox()
         {
             buildingsListBox.Items.Clear();
-            foreach (String building in Entities.buildings)
+            Config config = Config.Instance;
+            foreach (KeyValuePair<string, Building> building in config.Buildings)
             {
-                buildingsListBox.Items.Add(building);
+                buildingsListBox.Items.Add(building.Value.Name);
             }
+        }
+
+        private void updateRoomsListBox()
+        {
+            //roomsListBox.Items.Clear();
+            //foreach (KeyValuePair<string, Room> entry in Config.rooms)
+            //{
+            //    roomsListBox.Items.Add(entry.Key);
+            //}
         }
 
         private void addBuildingButton_Click(object sender, EventArgs e)
@@ -42,17 +53,17 @@ namespace CheApp
 
         private void deleteBuildingButton_Click(object sender, EventArgs e)
         {
-            string? selectedBuilding = buildingsListBox.GetItemText(buildingsListBox.SelectedItem);
-            if(selectedBuilding != null)
-            {
-                Entities.buildings.Remove(selectedBuilding);
+            //string? selectedBuilding = buildingsListBox.GetItemText(buildingsListBox.SelectedItem);
+            //if(selectedBuilding != null)
+            //{
+            //    Config.buildings.Remove(selectedBuilding);
 
-                dynamic config = Entities.readConfigFile();
-                config["buildings"] = Entities.buildings;
-                Entities.writeConfigFile(config);
+            //    dynamic config = Config.readConfigFile();
+            //    config["buildings"] = Config.buildings;
+            //    Config.writeConfigFile(config);
 
-                updatBuildingListBox();
-            } 
+            //    updateBuildingsListBox();
+            //} 
         }
     }
 }

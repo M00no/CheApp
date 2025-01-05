@@ -12,56 +12,56 @@ namespace CheApp
 
         private void updateRoomListBox()
         {
-            roomListBox.Items.Clear();
-            foreach (KeyValuePair<string, Room> entry in Entities.rooms)
-            {
-                roomListBox.Items.Add(entry.Key);
-            }
+            //roomListBox.Items.Clear();
+            //foreach (KeyValuePair<string, Room> entry in Config.rooms)
+            //{
+            //    roomListBox.Items.Add(entry.Key);
+            //}
         }
 
         private void calculateOxygenButton_Click(object sender, EventArgs e)
         {
-            if (roomListBox.SelectedIndex != -1)
-            {
-                string? selectedRoom = roomListBox.GetItemText(roomListBox.SelectedItem);
-                if (selectedRoom != null)
-                {
-                    Room chosenRoom = Entities.rooms[selectedRoom];
-                    String result = chosenRoom.CalculateUsedOxygen(
-                    Convert.ToInt32(howManyPeopleNumeric.Value),
-                    Convert.ToInt32(howLongInHoursNumeric.Value));
+            //if (roomListBox.SelectedIndex != -1)
+            //{
+            //    string? selectedRoom = roomListBox.GetItemText(roomListBox.SelectedItem);
+            //    if (selectedRoom != null)
+            //    {
+            //        Room chosenRoom = Config.rooms[selectedRoom];
+            //        String result = chosenRoom.CalculateUsedOxygen(
+            //        Convert.ToInt32(howManyPeopleNumeric.Value),
+            //        Convert.ToInt32(howLongInHoursNumeric.Value));
 
-                    resultValueTextBox.Text = result;
-                }
-            }
+            //        resultValueTextBox.Text = result;
+            //    }
+            //}
         }
 
         private void roomListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (roomListBox.SelectedIndex != -1)
-            {
-                string? selectedRoom = roomListBox.GetItemText(roomListBox.SelectedItem);
-                if (selectedRoom != null)
-                {
-                    Room chosenRoom = Entities.rooms[selectedRoom];
+            //if (roomListBox.SelectedIndex != -1)
+            //{
+            //    string? selectedRoom = roomListBox.GetItemText(roomListBox.SelectedItem);
+            //    if (selectedRoom != null)
+            //    {
+            //        Room chosenRoom = Config.rooms[selectedRoom];
 
-                    Type myType = chosenRoom.GetType();
-                    List<PropertyInfo> properties = new List<PropertyInfo>(myType.GetProperties());
+            //        Type myType = chosenRoom.GetType();
+            //        List<PropertyInfo> properties = new List<PropertyInfo>(myType.GetProperties());
 
-                    List<string> roomAttrs = [];
+            //        List<string> roomAttrs = [];
 
-                    foreach (PropertyInfo prop in properties)
-                    {
-                        string prop_name = prop.Name;
-                        var prop_value = prop.GetValue(chosenRoom, null);
-                        roomAttrs.Add(string.Format($"{prop_name}: {prop_value}"));
-                    }
+            //        foreach (PropertyInfo prop in properties)
+            //        {
+            //            string prop_name = prop.Name;
+            //            var prop_value = prop.GetValue(chosenRoom, null);
+            //            roomAttrs.Add(string.Format($"{prop_name}: {prop_value}"));
+            //        }
 
-                    string roomInfo = string.Join("\n", roomAttrs);
+            //        string roomInfo = string.Join("\n", roomAttrs);
 
-                    roomInfoValueTextBox.Text = roomInfo;
-                }
-            }
+            //        roomInfoValueTextBox.Text = roomInfo;
+            //    }
+            //}
         }
 
         private void refreshRoomsButton_Click(object sender, EventArgs e)
