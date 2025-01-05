@@ -52,6 +52,7 @@ namespace CheApp
 
                 entry["price"] = getPrice(config["pricing"], building, type, capacity);
                 entry["expense"] = getPrice(config["expenses"], building, type, capacity);
+                entry["discount"] = config["discount"];
 
                 rooms.Add(
                     string.Format($"{entry["name"]} {entry["index"]}"),
@@ -63,7 +64,8 @@ namespace CheApp
                         Convert.ToInt32(entry["volume"]),
                         Convert.ToInt32(entry["capacity"]),
                         Convert.ToInt32(entry["price"]),
-                        Convert.ToInt32(entry["expense"])
+                        Convert.ToInt32(entry["expense"]),
+                        Convert.ToInt32(entry["discount"])
                     )
                 );
             }

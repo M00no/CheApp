@@ -23,6 +23,8 @@ expenses:
     workspace:
       default: 41
 
+discount: 20
+
 rooms:
 - name: Test
   index: P2.123

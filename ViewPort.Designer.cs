@@ -32,7 +32,6 @@
             calculateExpensesButton = new Button();
             rentReservationButton = new Button();
             panel1 = new Panel();
-            settingsButton = new Button();
             calculateOxygenButton = new Button();
             calculateOxygenMenu1 = new CalculateOxygenMenu();
             panel1.SuspendLayout();
@@ -54,7 +53,7 @@
             // 
             // calculateExpensesButton
             // 
-            calculateExpensesButton.Location = new Point(17, 228);
+            calculateExpensesButton.Location = new Point(31, 158);
             calculateExpensesButton.Margin = new Padding(4, 5, 4, 5);
             calculateExpensesButton.Name = "calculateExpensesButton";
             calculateExpensesButton.Size = new Size(173, 70);
@@ -64,7 +63,7 @@
             // 
             // rentReservationButton
             // 
-            rentReservationButton.Location = new Point(17, 308);
+            rentReservationButton.Location = new Point(31, 238);
             rentReservationButton.Margin = new Padding(4, 5, 4, 5);
             rentReservationButton.Name = "rentReservationButton";
             rentReservationButton.Size = new Size(173, 93);
@@ -74,7 +73,6 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(settingsButton);
             panel1.Controls.Add(calculateExpensesButton);
             panel1.Controls.Add(rentReservationButton);
             panel1.Controls.Add(mmTitleTextBox);
@@ -86,19 +84,9 @@
             panel1.Size = new Size(229, 750);
             panel1.TabIndex = 4;
             // 
-            // settingsButton
-            // 
-            settingsButton.Location = new Point(17, 89);
-            settingsButton.Name = "settingsButton";
-            settingsButton.Size = new Size(173, 51);
-            settingsButton.TabIndex = 5;
-            settingsButton.Text = "Settings";
-            settingsButton.UseVisualStyleBackColor = true;
-            settingsButton.Click += settingsButton_Click;
-            // 
             // calculateOxygenButton
             // 
-            calculateOxygenButton.Location = new Point(17, 148);
+            calculateOxygenButton.Location = new Point(31, 78);
             calculateOxygenButton.Margin = new Padding(4, 5, 4, 5);
             calculateOxygenButton.Name = "calculateOxygenButton";
             calculateOxygenButton.Size = new Size(173, 70);
@@ -138,7 +126,6 @@
         private Button rentReservationButton;
         private Panel panel1;
         private CalculateOxygenMenu calculateOxygenMenu1;
-        private Button settingsButton;
         private Button calculateOxygenButton;
     }
 }

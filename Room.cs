@@ -10,8 +10,9 @@
         public int Capacity { get; set; }
         public int Price{ get; set; }
         public int Expense { get; set; }
+        public int Discount { get; set; }
 
-        public Room(string name, string index, string building, string type, int volume, int capacity, int price, int expense)
+        public Room(string name, string index, string building, string type, int volume, int capacity, int price, int expense, int discount)
         {
             Name = name;
             Index = index;
@@ -21,6 +22,7 @@
             Capacity = capacity;
             Price = price;
             Expense = expense;
+            Discount = discount;
         }
 
         //private float GetExpensesPerHour()
