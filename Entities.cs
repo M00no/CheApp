@@ -28,16 +28,7 @@ namespace CheApp
         {
             rooms = [];
 
-            string config_file = "./config.yaml";
-
-            if (!File.Exists(config_file))
-            {
-                File.WriteAllText(config_file, """
-                pricing:
-                expenses:
-                rooms: []
-                """);
-            }
+            string config_file = "../../../config/config.yaml";
 
             string config_str = File.ReadAllText(config_file);
 
@@ -63,9 +54,9 @@ namespace CheApp
                         entry["type"],
                         Convert.ToInt32(entry["volume"]),
                         Convert.ToInt32(entry["capacity"]),
-                        Convert.ToInt32(entry["price"]),
-                        Convert.ToInt32(entry["expense"]),
-                        Convert.ToInt32(entry["discount"])
+                        float.Parse(entry["price"]),
+                        float.Parse(entry["expense"]),
+                        float.Parse(entry["discount"])
                     )
                 );
             }

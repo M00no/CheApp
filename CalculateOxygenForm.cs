@@ -2,9 +2,9 @@
 
 namespace CheApp
 {
-    public partial class CalculateOxygenMenu : UserControl
+    public partial class CalculateOxygenForm : UserControl
     {
-        public CalculateOxygenMenu()
+        public CalculateOxygenForm()
         {
             InitializeComponent();
             updateRoomListBox();
@@ -21,17 +21,30 @@ namespace CheApp
 
         private void calculateOxygenButton_Click(object sender, EventArgs e)
         {
+            string resultText;
             if (roomListBox.SelectedIndex != -1)
             {
-                string? selectedRoom = roomListBox.GetItemText(roomListBox.SelectedItem);
-                if (selectedRoom != null)
+                string? roomName = roomListBox.GetItemText(roomListBox.SelectedItem);
+                if (roomName != null)
                 {
-                    Room chosenRoom = Entities.rooms[selectedRoom];
-                    String result = chosenRoom.CalculateUsedOxygen(
-                    Convert.ToInt32(howManyPeopleNumeric.Value),
-                    Convert.ToInt32(howLongInHoursNumeric.Value));
-
-                    resultValueTextBox.Text = result;
+                    Room room = Entities.rooms[roomName];
+                    (float? oxygenUsed, float? oxygenOver, string? error) result = room.calculateUsedOxygen(
+                        Convert.ToInt32(howManyPeopleNumeric.Value),
+                        Convert.ToInt32(howLongInHoursNumeric.Value)
+                    );
+                    if (result.error == null)
+                    {
+                        resultText =
+                            $"{result.oxygenUsed}L of oxygen will be used and {result.oxygenOver}L will be over in room {room.Index}";
+                    }
+                    else
+                    {
+                        Dictionary<string, string> errors = [];
+                        errors.Add("TOO_MANY_PEOPLE", $"There are too many people for room {room.Index}");
+                        errors.Add("NOT_ENOUGH_OXYGEN", $"There is not enough oxygen in room {room.Index}");
+                        resultText = errors[result.error];
+                    }
+                    resultValueTextBox.Text = resultText;
                 }
             }
         }
@@ -62,12 +75,6 @@ namespace CheApp
                     roomInfoValueTextBox.Text = roomInfo;
                 }
             }
-        }
-
-        private void refreshRoomsButton_Click(object sender, EventArgs e)
-        {
-            Entities.init();
-            updateRoomListBox();
         }
     }
 }

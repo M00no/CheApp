@@ -33,7 +33,7 @@
             rentReservationButton = new Button();
             panel1 = new Panel();
             calculateOxygenButton = new Button();
-            calculateOxygenMenu1 = new CalculateOxygenMenu();
+            calculateExpensesForm1 = new CalculateExpensesForm();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -95,22 +95,19 @@
             calculateOxygenButton.UseVisualStyleBackColor = true;
             calculateOxygenButton.Click += calculateOxygenButton_Click;
             // 
-            // calculateOxygenMenu1
+            // calculateExpensesForm1
             // 
-            calculateOxygenMenu1.BackColor = SystemColors.Control;
-            calculateOxygenMenu1.Location = new Point(239, 17);
-            calculateOxygenMenu1.Margin = new Padding(6, 8, 6, 8);
-            calculateOxygenMenu1.Name = "calculateOxygenMenu1";
-            calculateOxygenMenu1.Size = new Size(889, 710);
-            calculateOxygenMenu1.TabIndex = 5;
-            calculateOxygenMenu1.Visible = false;
+            calculateExpensesForm1.Location = new Point(242, 20);
+            calculateExpensesForm1.Name = "calculateExpensesForm1";
+            calculateExpensesForm1.Size = new Size(889, 710);
+            calculateExpensesForm1.TabIndex = 5;
             // 
             // ViewPort
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1143, 750);
-            Controls.Add(calculateOxygenMenu1);
+            Controls.Add(calculateExpensesForm1);
             Controls.Add(panel1);
             Margin = new Padding(4, 5, 4, 5);
             Name = "ViewPort";
@@ -125,7 +122,7 @@
         private Button calculateExpensesButton;
         private Button rentReservationButton;
         private Panel panel1;
-        private CalculateOxygenMenu calculateOxygenMenu1;
         private Button calculateOxygenButton;
+        private CalculateExpensesForm calculateExpensesForm1;
     }
 }

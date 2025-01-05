@@ -17,11 +17,22 @@ pricing:
 expenses:
   Prisma:
     room:
-      default: 40
-      27: 21
-      60: 31
+      default: 0
+      27: 275
+      60: 475
     workspace:
-      default: 41
+      default: 90
+    public:
+      default: 0
+  Spectrum:
+    room:
+      default: 0
+      27: 300
+      60: 500
+    workspace:
+      default: 100
+    public:
+      default: 0
 
 discount: 20
 
@@ -38,3 +49,9 @@ rooms:
   building: Prisma
   volume: 200
   capacity: 4
+- name: Test3
+  index: S2.124
+  type: public
+  building: Spectrum
+  volume: 200
+  capacity: 20

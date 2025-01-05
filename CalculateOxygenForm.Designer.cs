@@ -1,6 +1,6 @@
 ﻿namespace CheApp
 {
-    partial class CalculateOxygenMenu
+    partial class CalculateOxygenForm
     {
         /// <summary> 
         /// Required designer variable.
@@ -40,17 +40,17 @@
             calculateOxygenButton = new Button();
             roomInfoTextBox = new TextBox();
             roomInfoValueTextBox = new RichTextBox();
-            refreshRoomsButton = new Button();
             ((System.ComponentModel.ISupportInitialize)howLongInHoursNumeric).BeginInit();
             ((System.ComponentModel.ISupportInitialize)howManyPeopleNumeric).BeginInit();
             SuspendLayout();
             // 
             // resultValueTextBox
             // 
-            resultValueTextBox.Location = new Point(302, 290);
+            resultValueTextBox.Location = new Point(431, 483);
+            resultValueTextBox.Margin = new Padding(4, 5, 4, 5);
             resultValueTextBox.Name = "resultValueTextBox";
             resultValueTextBox.ReadOnly = true;
-            resultValueTextBox.Size = new Size(259, 113);
+            resultValueTextBox.Size = new Size(368, 186);
             resultValueTextBox.TabIndex = 19;
             resultValueTextBox.Text = "";
             // 
@@ -59,10 +59,11 @@
             resultTextBox.BorderStyle = BorderStyle.None;
             resultTextBox.Cursor = Cursors.No;
             resultTextBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            resultTextBox.Location = new Point(302, 262);
+            resultTextBox.Location = new Point(431, 437);
+            resultTextBox.Margin = new Padding(4, 5, 4, 5);
             resultTextBox.Name = "resultTextBox";
             resultTextBox.ReadOnly = true;
-            resultTextBox.Size = new Size(64, 22);
+            resultTextBox.Size = new Size(91, 32);
             resultTextBox.TabIndex = 18;
             resultTextBox.Text = "Result:";
             resultTextBox.TextAlign = HorizontalAlignment.Center;
@@ -72,10 +73,11 @@
             howLongTextBox.BorderStyle = BorderStyle.None;
             howLongTextBox.Cursor = Cursors.No;
             howLongTextBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            howLongTextBox.Location = new Point(302, 119);
+            howLongTextBox.Location = new Point(431, 198);
+            howLongTextBox.Margin = new Padding(4, 5, 4, 5);
             howLongTextBox.Name = "howLongTextBox";
             howLongTextBox.ReadOnly = true;
-            howLongTextBox.Size = new Size(139, 22);
+            howLongTextBox.Size = new Size(199, 32);
             howLongTextBox.TabIndex = 17;
             howLongTextBox.Text = "How Long In Hours";
             howLongTextBox.TextAlign = HorizontalAlignment.Center;
@@ -85,10 +87,11 @@
             howManyTextBox.BorderStyle = BorderStyle.None;
             howManyTextBox.Cursor = Cursors.No;
             howManyTextBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            howManyTextBox.Location = new Point(302, 62);
+            howManyTextBox.Location = new Point(431, 103);
+            howManyTextBox.Margin = new Padding(4, 5, 4, 5);
             howManyTextBox.Name = "howManyTextBox";
             howManyTextBox.ReadOnly = true;
-            howManyTextBox.Size = new Size(139, 22);
+            howManyTextBox.Size = new Size(199, 32);
             howManyTextBox.TabIndex = 16;
             howManyTextBox.Text = "How Many People";
             howManyTextBox.TextAlign = HorizontalAlignment.Center;
@@ -98,10 +101,11 @@
             chooseRoomTextBox.BorderStyle = BorderStyle.None;
             chooseRoomTextBox.Cursor = Cursors.No;
             chooseRoomTextBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            chooseRoomTextBox.Location = new Point(24, 61);
+            chooseRoomTextBox.Location = new Point(34, 102);
+            chooseRoomTextBox.Margin = new Padding(4, 5, 4, 5);
             chooseRoomTextBox.Name = "chooseRoomTextBox";
             chooseRoomTextBox.ReadOnly = true;
-            chooseRoomTextBox.Size = new Size(174, 22);
+            chooseRoomTextBox.Size = new Size(249, 32);
             chooseRoomTextBox.TabIndex = 15;
             chooseRoomTextBox.Text = "Choose Room";
             chooseRoomTextBox.TextAlign = HorizontalAlignment.Center;
@@ -109,25 +113,28 @@
             // roomListBox
             // 
             roomListBox.FormattingEnabled = true;
-            roomListBox.ItemHeight = 15;
-            roomListBox.Location = new Point(24, 89);
+            roomListBox.ItemHeight = 25;
+            roomListBox.Location = new Point(34, 148);
+            roomListBox.Margin = new Padding(4, 5, 4, 5);
             roomListBox.Name = "roomListBox";
-            roomListBox.Size = new Size(174, 109);
+            roomListBox.Size = new Size(247, 179);
             roomListBox.TabIndex = 14;
             roomListBox.SelectedIndexChanged += roomListBox_SelectedIndexChanged;
             // 
             // howLongInHoursNumeric
             // 
-            howLongInHoursNumeric.Location = new Point(302, 147);
+            howLongInHoursNumeric.Location = new Point(431, 245);
+            howLongInHoursNumeric.Margin = new Padding(4, 5, 4, 5);
             howLongInHoursNumeric.Name = "howLongInHoursNumeric";
-            howLongInHoursNumeric.Size = new Size(139, 23);
+            howLongInHoursNumeric.Size = new Size(199, 31);
             howLongInHoursNumeric.TabIndex = 13;
             // 
             // howManyPeopleNumeric
             // 
-            howManyPeopleNumeric.Location = new Point(302, 90);
+            howManyPeopleNumeric.Location = new Point(431, 150);
+            howManyPeopleNumeric.Margin = new Padding(4, 5, 4, 5);
             howManyPeopleNumeric.Name = "howManyPeopleNumeric";
-            howManyPeopleNumeric.Size = new Size(139, 23);
+            howManyPeopleNumeric.Size = new Size(199, 31);
             howManyPeopleNumeric.TabIndex = 12;
             // 
             // coTitleTextBox
@@ -135,19 +142,21 @@
             coTitleTextBox.BorderStyle = BorderStyle.None;
             coTitleTextBox.Cursor = Cursors.No;
             coTitleTextBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            coTitleTextBox.Location = new Point(3, 3);
+            coTitleTextBox.Location = new Point(4, 5);
+            coTitleTextBox.Margin = new Padding(4, 5, 4, 5);
             coTitleTextBox.Name = "coTitleTextBox";
             coTitleTextBox.ReadOnly = true;
-            coTitleTextBox.Size = new Size(195, 32);
+            coTitleTextBox.Size = new Size(279, 48);
             coTitleTextBox.TabIndex = 11;
             coTitleTextBox.Text = "Calculate Oxygen";
             coTitleTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // calculateOxygenButton
             // 
-            calculateOxygenButton.Location = new Point(302, 206);
+            calculateOxygenButton.Location = new Point(431, 343);
+            calculateOxygenButton.Margin = new Padding(4, 5, 4, 5);
             calculateOxygenButton.Name = "calculateOxygenButton";
-            calculateOxygenButton.Size = new Size(75, 23);
+            calculateOxygenButton.Size = new Size(107, 38);
             calculateOxygenButton.TabIndex = 20;
             calculateOxygenButton.Text = "Calculate";
             calculateOxygenButton.UseVisualStyleBackColor = true;
@@ -158,39 +167,30 @@
             roomInfoTextBox.BorderStyle = BorderStyle.None;
             roomInfoTextBox.Cursor = Cursors.No;
             roomInfoTextBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            roomInfoTextBox.Location = new Point(24, 262);
+            roomInfoTextBox.Location = new Point(34, 437);
+            roomInfoTextBox.Margin = new Padding(4, 5, 4, 5);
             roomInfoTextBox.Name = "roomInfoTextBox";
             roomInfoTextBox.ReadOnly = true;
-            roomInfoTextBox.Size = new Size(89, 22);
+            roomInfoTextBox.Size = new Size(127, 32);
             roomInfoTextBox.TabIndex = 21;
             roomInfoTextBox.Text = "Room Info";
             roomInfoTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // roomInfoValueTextBox
             // 
-            roomInfoValueTextBox.Location = new Point(24, 290);
+            roomInfoValueTextBox.Location = new Point(34, 483);
+            roomInfoValueTextBox.Margin = new Padding(4, 5, 4, 5);
             roomInfoValueTextBox.Name = "roomInfoValueTextBox";
             roomInfoValueTextBox.ReadOnly = true;
-            roomInfoValueTextBox.Size = new Size(209, 113);
+            roomInfoValueTextBox.Size = new Size(297, 186);
             roomInfoValueTextBox.TabIndex = 22;
             roomInfoValueTextBox.Text = "";
             // 
-            // refreshRoomsButton
+            // CalculateOxygenForm
             // 
-            refreshRoomsButton.Location = new Point(24, 206);
-            refreshRoomsButton.Name = "refreshRoomsButton";
-            refreshRoomsButton.Size = new Size(75, 23);
-            refreshRoomsButton.TabIndex = 23;
-            refreshRoomsButton.Text = "Refresh";
-            refreshRoomsButton.UseVisualStyleBackColor = true;
-            refreshRoomsButton.Click += refreshRoomsButton_Click;
-            // 
-            // CalculateOxygenMenu
-            // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            Controls.Add(refreshRoomsButton);
             Controls.Add(roomInfoValueTextBox);
             Controls.Add(roomInfoTextBox);
             Controls.Add(calculateOxygenButton);
@@ -203,8 +203,9 @@
             Controls.Add(howLongInHoursNumeric);
             Controls.Add(howManyPeopleNumeric);
             Controls.Add(coTitleTextBox);
-            Name = "CalculateOxygenMenu";
-            Size = new Size(622, 426);
+            Margin = new Padding(4, 5, 4, 5);
+            Name = "CalculateOxygenForm";
+            Size = new Size(889, 710);
             ((System.ComponentModel.ISupportInitialize)howLongInHoursNumeric).EndInit();
             ((System.ComponentModel.ISupportInitialize)howManyPeopleNumeric).EndInit();
             ResumeLayout(false);
@@ -225,6 +226,5 @@
         private Button calculateOxygenButton;
         private TextBox roomInfoTextBox;
         private RichTextBox roomInfoValueTextBox;
-        private Button refreshRoomsButton;
     }
 }

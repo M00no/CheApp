@@ -8,16 +8,16 @@
         public string Building { get; set; }
         public int Volume { get; set; }
         public int Capacity { get; set; }
-        public int Price{ get; set; }
-        public int Expense { get; set; }
-        public int Discount { get; set; }
+        public float Price{ get; set; }
+        public float Expense { get; set; }
+        public float Discount { get; set; }
 
-        public Room(string name, string index, string building, string type, int volume, int capacity, int price, int expense, int discount)
+        public Room(string name, string index, string type, string building, int volume, int capacity, float price, float expense, float discount)
         {
             Name = name;
             Index = index;
-            Building = building;
             Type = type;
+            Building = building;
             Volume = volume;
             Capacity = capacity;
             Price = price;
@@ -25,52 +25,7 @@
             Discount = discount;
         }
 
-        //private float GetExpensesPerHour()
-        //{
-        //    string expensePerHourString;
-
-        //    var yaml = File.ReadAllText("config.yaml");
-
-        //    var deserializer = new DeserializerBuilder().Build();
-        //    var res = deserializer.Deserialize<dynamic>(yaml);
-
-        //    if (Capacity == null)
-        //    {
-        //        expensePerHourString = res["expenses"][Index][Type]["expense"];
-        //    }
-        //    else
-        //    {
-        //        expensePerHourString = res["expenses"][Index][Type]["capacity"][Capacity.ToString()]["expense"];
-        //    }
-
-        //    return float.Parse(expensePerHourString);
-        //}
-
-        //private float GetRentPricePerHour()
-        //{
-        //    var yaml = File.ReadAllText("config.yaml");
-
-        //    var deserializer = new DeserializerBuilder().Build();
-        //    var res = deserializer.Deserialize<dynamic>(yaml);
-
-        //    string rentPriceString = res["rentPrice"][Index][Type]["price"];
-
-        //    return float.Parse(rentPriceString);
-        //}
-
-        //private float GetDiscount()
-        //{
-        //    var yaml = File.ReadAllText("config.yaml");
-
-        //    var deserializer = new DeserializerBuilder().Build();
-        //    var res = deserializer.Deserialize<dynamic>(yaml);
-
-        //    string discountString = res["discount"];
-
-        //    return float.Parse(discountString);
-        //}
-
-        public string CalculateUsedOxygen(int totalPeople, int durationInHour) // Calculates how much oxygen is used and is over
+        public (float?, float?, string?) calculateUsedOxygen(int totalPeople, int durationInHour) // Calculates how much oxygen is used and is over
         {
             if (totalPeople <= Capacity)
             {
@@ -82,38 +37,41 @@
                     float oxygenUsed = durationInHour * (totalPeople * 30);
                     float oxygenOver = totalOxygen - oxygenUsed;
 
-                    return $"{oxygenUsed}L of oxygen will be used and {oxygenOver}L will be over in room {Index}";
+                    return (oxygenUsed, oxygenOver, null);
                 }
                 else
                 {
-                    return $"There is not enough oxygen in room {Index}";
+                    return (null, null, "NOT_ENOUGH_OXYGEN");
                 }
             }
-            return $"There are too many people for room {Index}";
+            return (null, null, "TOO_MANY_PEOPLE");
         }
 
-        //public float CalculateExpenses(DateTime begin, DateTime end)
-        //{
-        //    var durationInHours = (end - begin).TotalHours;
-        //    float totalExpenses = 0;
-        //    int morningHourCount = 0;
+        public float calculateExpenses(DateOnly beginDate, DateOnly endDate, TimeOnly beginTime, TimeOnly endTime)
+        {
+            int totalDays = endDate.DayNumber - beginDate.DayNumber + 1;
+            int hoursPerDay = (endTime - beginTime).Hours;
 
-        //    for (int i = 0; i < durationInHours; i++)
-        //    {
-        //        DateTime currentDateTime = begin.AddHours(i);
-        //        float expenses = GetExpensesPerHour();
+            float rentExpense = hoursPerDay * Expense;
+            float additionalExpense = calculateAdditionalExpenses(beginTime, endTime);
 
-        //        if (currentDateTime.Hour is >= 8 and <= 11)
-        //        {
-        //            expenses += 5 - morningHourCount;
-        //            morningHourCount++;
-        //        }
-        //        if (currentDateTime.Hour == 0) morningHourCount = 0;
 
-        //        totalExpenses += expenses;
-        //    }
+            return totalDays * (rentExpense + additionalExpense);
+        }
 
-        //    return totalExpenses;
-        //}
+        private float calculateAdditionalExpenses(TimeOnly beginTime, TimeOnly endTime)
+        {
+            float additionalExpense = 5;
+            float totalAdditionalExpense = 0;
+
+            int additionalEndTimeHour = endTime.Hour < 12 ? endTime.Hour : 12;
+            for (int currentHour = beginTime.Hour; currentHour < additionalEndTimeHour; currentHour++)
+            {
+                totalAdditionalExpense += additionalExpense;
+                additionalExpense--;
+            }
+
+            return totalAdditionalExpense;
+        }
     }
 }
