@@ -19,5 +19,10 @@ namespace CheApp
         {
             tabControl.SelectTab(priceAndExpensesTab);
         }
+
+        private void makeReservationButton_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectTab(findReservationTab);
+        }
     }
 }

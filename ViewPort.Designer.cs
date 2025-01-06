@@ -90,6 +90,7 @@
             makeReservationButton.TabIndex = 3;
             makeReservationButton.Text = "Make a reservation";
             makeReservationButton.UseVisualStyleBackColor = true;
+            makeReservationButton.Click += makeReservationButton_Click;
             // 
             // calculateOxygenButton
             // 

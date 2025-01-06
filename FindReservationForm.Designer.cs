@@ -38,13 +38,20 @@
             findButton = new Button();
             resultValueTextBox = new RichTextBox();
             resultTextBox = new TextBox();
+            durationNumeric = new NumericUpDown();
+            durationTextBox = new TextBox();
+            datePicker = new DateTimePicker();
+            timePicker = new DateTimePicker();
+            dateTextBox = new TextBox();
+            timeTextBox = new TextBox();
             ((System.ComponentModel.ISupportInitialize)howManyPeopleNumeric).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)durationNumeric).BeginInit();
             SuspendLayout();
             // 
             // chooseFloorComboBox
             // 
             chooseFloorComboBox.FormattingEnabled = true;
-            chooseFloorComboBox.Location = new Point(89, 163);
+            chooseFloorComboBox.Location = new Point(89, 148);
             chooseFloorComboBox.Name = "chooseFloorComboBox";
             chooseFloorComboBox.Size = new Size(145, 23);
             chooseFloorComboBox.TabIndex = 0;
@@ -88,7 +95,7 @@
             chooseFloorTextBox.BorderStyle = BorderStyle.None;
             chooseFloorTextBox.Cursor = Cursors.No;
             chooseFloorTextBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            chooseFloorTextBox.Location = new Point(89, 135);
+            chooseFloorTextBox.Location = new Point(89, 120);
             chooseFloorTextBox.Name = "chooseFloorTextBox";
             chooseFloorTextBox.ReadOnly = true;
             chooseFloorTextBox.Size = new Size(92, 22);
@@ -101,7 +108,7 @@
             howManyTextBox.BorderStyle = BorderStyle.None;
             howManyTextBox.Cursor = Cursors.No;
             howManyTextBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            howManyTextBox.Location = new Point(314, 63);
+            howManyTextBox.Location = new Point(89, 177);
             howManyTextBox.Name = "howManyTextBox";
             howManyTextBox.ReadOnly = true;
             howManyTextBox.Size = new Size(139, 22);
@@ -111,14 +118,14 @@
             // 
             // howManyPeopleNumeric
             // 
-            howManyPeopleNumeric.Location = new Point(314, 91);
+            howManyPeopleNumeric.Location = new Point(89, 205);
             howManyPeopleNumeric.Name = "howManyPeopleNumeric";
             howManyPeopleNumeric.Size = new Size(139, 23);
             howManyPeopleNumeric.TabIndex = 35;
             // 
             // findButton
             // 
-            findButton.Location = new Point(378, 162);
+            findButton.Location = new Point(430, 247);
             findButton.Name = "findButton";
             findButton.Size = new Size(75, 23);
             findButton.TabIndex = 37;
@@ -128,7 +135,7 @@
             // 
             // resultValueTextBox
             // 
-            resultValueTextBox.Location = new Point(179, 258);
+            resultValueTextBox.Location = new Point(179, 276);
             resultValueTextBox.Name = "resultValueTextBox";
             resultValueTextBox.ReadOnly = true;
             resultValueTextBox.Size = new Size(259, 113);
@@ -140,7 +147,7 @@
             resultTextBox.BorderStyle = BorderStyle.None;
             resultTextBox.Cursor = Cursors.No;
             resultTextBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            resultTextBox.Location = new Point(179, 231);
+            resultTextBox.Location = new Point(179, 248);
             resultTextBox.Name = "resultTextBox";
             resultTextBox.ReadOnly = true;
             resultTextBox.Size = new Size(64, 22);
@@ -148,10 +155,77 @@
             resultTextBox.Text = "Result:";
             resultTextBox.TextAlign = HorizontalAlignment.Center;
             // 
+            // durationNumeric
+            // 
+            durationNumeric.Location = new Point(305, 205);
+            durationNumeric.Name = "durationNumeric";
+            durationNumeric.Size = new Size(200, 23);
+            durationNumeric.TabIndex = 44;
+            // 
+            // durationTextBox
+            // 
+            durationTextBox.BorderStyle = BorderStyle.None;
+            durationTextBox.Cursor = Cursors.No;
+            durationTextBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            durationTextBox.Location = new Point(305, 177);
+            durationTextBox.Name = "durationTextBox";
+            durationTextBox.ReadOnly = true;
+            durationTextBox.Size = new Size(75, 22);
+            durationTextBox.TabIndex = 45;
+            durationTextBox.Text = "Duration";
+            durationTextBox.TextAlign = HorizontalAlignment.Center;
+            // 
+            // datePicker
+            // 
+            datePicker.Location = new Point(305, 88);
+            datePicker.Name = "datePicker";
+            datePicker.Size = new Size(200, 23);
+            datePicker.TabIndex = 46;
+            // 
+            // timePicker
+            // 
+            timePicker.Location = new Point(305, 145);
+            timePicker.Name = "timePicker";
+            timePicker.Size = new Size(200, 23);
+            timePicker.TabIndex = 47;
+            timePicker.ValueChanged += timePicker_ValueChanged;
+            // 
+            // dateTextBox
+            // 
+            dateTextBox.BorderStyle = BorderStyle.None;
+            dateTextBox.Cursor = Cursors.No;
+            dateTextBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dateTextBox.Location = new Point(305, 63);
+            dateTextBox.Name = "dateTextBox";
+            dateTextBox.ReadOnly = true;
+            dateTextBox.Size = new Size(47, 22);
+            dateTextBox.TabIndex = 48;
+            dateTextBox.Text = "Date";
+            dateTextBox.TextAlign = HorizontalAlignment.Center;
+            // 
+            // timeTextBox
+            // 
+            timeTextBox.BorderStyle = BorderStyle.None;
+            timeTextBox.Cursor = Cursors.No;
+            timeTextBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            timeTextBox.Location = new Point(305, 120);
+            timeTextBox.Name = "timeTextBox";
+            timeTextBox.ReadOnly = true;
+            timeTextBox.Size = new Size(47, 22);
+            timeTextBox.TabIndex = 49;
+            timeTextBox.Text = "Time";
+            timeTextBox.TextAlign = HorizontalAlignment.Center;
+            // 
             // FindReservationForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(timeTextBox);
+            Controls.Add(dateTextBox);
+            Controls.Add(timePicker);
+            Controls.Add(datePicker);
+            Controls.Add(durationTextBox);
+            Controls.Add(durationNumeric);
             Controls.Add(resultValueTextBox);
             Controls.Add(resultTextBox);
             Controls.Add(findButton);
@@ -165,6 +239,7 @@
             Name = "FindReservationForm";
             Size = new Size(621, 408);
             ((System.ComponentModel.ISupportInitialize)howManyPeopleNumeric).EndInit();
+            ((System.ComponentModel.ISupportInitialize)durationNumeric).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -181,5 +256,11 @@
         private Button findButton;
         private RichTextBox resultValueTextBox;
         private TextBox resultTextBox;
+        private NumericUpDown durationNumeric;
+        private TextBox durationTextBox;
+        private DateTimePicker datePicker;
+        private DateTimePicker timePicker;
+        private TextBox dateTextBox;
+        private TextBox timeTextBox;
     }
 }

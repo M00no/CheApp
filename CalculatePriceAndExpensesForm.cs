@@ -25,7 +25,7 @@ namespace CheApp
             beginDatePicker.MinDate = DateTime.Now;
 
             beginTimePicker.Format = DateTimePickerFormat.Custom;
-            beginTimePicker.CustomFormat = "HH";
+            beginTimePicker.CustomFormat = "HH:00";
             beginTimePicker.ShowUpDown = true;
             beginTimePicker.MinDate = DateTime.Parse("8:00");
             beginTimePicker.MaxDate = DateTime.Parse("17:00");
@@ -33,7 +33,7 @@ namespace CheApp
 
 
             endTimePicker.Format = DateTimePickerFormat.Custom;
-            endTimePicker.CustomFormat = "HH";
+            endTimePicker.CustomFormat = "HH:00";
             endTimePicker.ShowUpDown = true;
             endTimePicker.MinDate = beginTimePicker.Value.AddHours(1);
             endTimePicker.MaxDate = DateTime.Parse("18:00");
