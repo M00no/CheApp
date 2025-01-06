@@ -80,21 +80,21 @@
             int hoursPerDay = (endTime - beginTime).Hours;
 
             float rentPricePerDay = hoursPerDay * Price;
-            //float discount = calculateDiscount(beginDate, endDate);
+            float discount = calculateDiscount(beginDate, endDate);
 
-            return totalDays * rentPricePerDay;// - discount;
+            return totalDays * rentPricePerDay - discount;
         }
 
         private float calculateDiscount(DateOnly beginDate, DateOnly endDate)
         {
             int totalFridays = 0;
 
-            for(DateOnly currentDate = beginDate; currentDate <= endDate; currentDate.AddDays(1))
+            for(DateOnly currentDate = beginDate; currentDate <= endDate; currentDate = currentDate.AddDays(1))
             {
                 if(currentDate.DayOfWeek == DayOfWeek.Friday) totalFridays++;
             }
 
-            float discount = Price * totalFridays * (1 - Discount/100);
+            float discount = Price * totalFridays * (Discount/100);
 
             return discount;
         }
