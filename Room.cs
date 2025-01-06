@@ -81,8 +81,18 @@
             int totalDays = endDate.DayNumber - beginDate.DayNumber + 1;
             int hoursPerDay = (endTime - beginTime).Hours;
 
-            float rentPricePerDay = hoursPerDay * Price;
+
+
+            float rentPricePerDay;
             float discount = calculateDiscount(beginDate, endDate);
+            if(Type == "room")
+            {
+                rentPricePerDay = hoursPerDay * (Capacity * Price);
+            }
+            else
+            {
+                rentPricePerDay = hoursPerDay * Price;
+            }
 
             return totalDays * rentPricePerDay - discount;
         }
