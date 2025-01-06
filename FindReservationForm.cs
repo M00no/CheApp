@@ -62,6 +62,11 @@ namespace CheApp
                 int chosenFloor = chooseFloorComboBox.SelectedIndex;
                 int totalPeople = (int)howManyPeopleNumeric.Value;
 
+                DateOnly beginDate = DateOnly.FromDateTime(datePicker.Value);
+                TimeOnly beginTime = TimeOnly.FromDateTime(timePicker.Value);
+                DateTime beginDateTime = new DateTime(beginDate, beginTime);
+                DateTime endDateTime = beginDateTime.AddHours((int)durationNumeric.Value);
+
                 suitableRoom = findRoom(chosenBuilding, chosenFloor, totalPeople);
 
                 if (suitableRoom == null)

@@ -1,18 +1,21 @@
 pricing:
   Prisma:
     room:
-      default: 1
+      default: 17,50
     workspace:
-      default: 2
+      default: 150
     public:
-      default: 3
+      default: 250
   Spectrum:
     room:
-      default: 11
+      default: 20
     workspace:
-      default: 12
+      default: 120
     public: 
-      default: 13
+      default: 250
+  External:
+    public: 
+      default: 250
 
 expenses:
   Prisma:
@@ -33,28 +36,31 @@ expenses:
       default: 100
     public:
       default: 0
+  External:
+    public: 
+      default: 0
 
 discount: 20
 
 rooms:
-- name: Test
-  index: P2.123
+- name: ICT lokaal
+  index: P2.167
   type: room
   building: Prisma
   floor: 2
-  volume: 100
-  capacity: 27
-- name: Test2
-  index: P2.124
+  volume: 500
+  capacity: 60
+- name: Overlegruimte
+  index: S0.096
   type: workspace
-  building: Prisma
-  floor: 2
-  volume: 200
-  capacity: 4
-- name: Test3
-  index: S2.124
-  type: public
   building: Spectrum
-  floor: 2
-  volume: 200
-  capacity: 20
+  floor: 0
+  volume: 45
+  capacity: 4
+- name: Bowling
+  index: E0.000
+  type: public
+  building: External
+  floor: 0
+  volume: 20
+  capacity: 10
