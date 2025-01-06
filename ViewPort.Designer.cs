@@ -29,12 +29,18 @@
         private void InitializeComponent()
         {
             mmTitleTextBox = new TextBox();
-            calculateExpensesButton = new Button();
-            rentReservationButton = new Button();
+            calculatePriceAndExpensesButton = new Button();
             panel1 = new Panel();
             calculateOxygenButton = new Button();
-            calculateExpensesForm1 = new CalculateExpensesForm();
+            tabControl = new TabControl();
+            oxygenTab = new TabPage();
+            calculateOxygenForm1 = new CalculateOxygenForm();
+            priceAndExpensesTab = new TabPage();
+            calculatePriceAndExpensesForm1 = new CalculatePriceAndExpensesForm();
             panel1.SuspendLayout();
+            tabControl.SuspendLayout();
+            oxygenTab.SuspendLayout();
+            priceAndExpensesTab.SuspendLayout();
             SuspendLayout();
             // 
             // mmTitleTextBox
@@ -51,30 +57,20 @@
             mmTitleTextBox.Text = "Main Menu";
             mmTitleTextBox.TextAlign = HorizontalAlignment.Center;
             // 
-            // calculateExpensesButton
+            // calculatePriceAndExpensesButton
             // 
-            calculateExpensesButton.Location = new Point(31, 158);
-            calculateExpensesButton.Margin = new Padding(4, 5, 4, 5);
-            calculateExpensesButton.Name = "calculateExpensesButton";
-            calculateExpensesButton.Size = new Size(173, 70);
-            calculateExpensesButton.TabIndex = 2;
-            calculateExpensesButton.Text = "Calculate Expenses for room";
-            calculateExpensesButton.UseVisualStyleBackColor = true;
-            // 
-            // rentReservationButton
-            // 
-            rentReservationButton.Location = new Point(31, 238);
-            rentReservationButton.Margin = new Padding(4, 5, 4, 5);
-            rentReservationButton.Name = "rentReservationButton";
-            rentReservationButton.Size = new Size(173, 93);
-            rentReservationButton.TabIndex = 3;
-            rentReservationButton.Text = "Make a rent reservation for government";
-            rentReservationButton.UseVisualStyleBackColor = true;
+            calculatePriceAndExpensesButton.Location = new Point(31, 158);
+            calculatePriceAndExpensesButton.Margin = new Padding(4, 5, 4, 5);
+            calculatePriceAndExpensesButton.Name = "calculatePriceAndExpensesButton";
+            calculatePriceAndExpensesButton.Size = new Size(173, 74);
+            calculatePriceAndExpensesButton.TabIndex = 2;
+            calculatePriceAndExpensesButton.Text = "Calculate Price And Expenses for room";
+            calculatePriceAndExpensesButton.UseVisualStyleBackColor = true;
+            calculatePriceAndExpensesButton.Click += calculatePriceAndExpensesButton_Click;
             // 
             // panel1
             // 
-            panel1.Controls.Add(calculateExpensesButton);
-            panel1.Controls.Add(rentReservationButton);
+            panel1.Controls.Add(calculatePriceAndExpensesButton);
             panel1.Controls.Add(mmTitleTextBox);
             panel1.Controls.Add(calculateOxygenButton);
             panel1.Dock = DockStyle.Left;
@@ -95,34 +91,82 @@
             calculateOxygenButton.UseVisualStyleBackColor = true;
             calculateOxygenButton.Click += calculateOxygenButton_Click;
             // 
-            // calculateExpensesForm1
+            // tabControl
             // 
-            calculateExpensesForm1.Location = new Point(242, 20);
-            calculateExpensesForm1.Name = "calculateExpensesForm1";
-            calculateExpensesForm1.Size = new Size(889, 710);
-            calculateExpensesForm1.TabIndex = 5;
+            tabControl.Controls.Add(oxygenTab);
+            tabControl.Controls.Add(priceAndExpensesTab);
+            tabControl.Location = new Point(236, 20);
+            tabControl.Name = "tabControl";
+            tabControl.SelectedIndex = 0;
+            tabControl.Size = new Size(895, 718);
+            tabControl.TabIndex = 5;
+            // 
+            // oxygenTab
+            // 
+            oxygenTab.Controls.Add(calculateOxygenForm1);
+            oxygenTab.Location = new Point(4, 34);
+            oxygenTab.Name = "oxygenTab";
+            oxygenTab.Padding = new Padding(3);
+            oxygenTab.Size = new Size(887, 680);
+            oxygenTab.TabIndex = 0;
+            oxygenTab.Text = "Oxygen";
+            oxygenTab.UseVisualStyleBackColor = true;
+            // 
+            // calculateOxygenForm1
+            // 
+            calculateOxygenForm1.BackColor = SystemColors.Control;
+            calculateOxygenForm1.Location = new Point(0, 0);
+            calculateOxygenForm1.Margin = new Padding(4, 5, 4, 5);
+            calculateOxygenForm1.Name = "calculateOxygenForm1";
+            calculateOxygenForm1.Size = new Size(887, 680);
+            calculateOxygenForm1.TabIndex = 0;
+            // 
+            // priceAndExpensesTab
+            // 
+            priceAndExpensesTab.Controls.Add(calculatePriceAndExpensesForm1);
+            priceAndExpensesTab.Location = new Point(4, 34);
+            priceAndExpensesTab.Name = "priceAndExpensesTab";
+            priceAndExpensesTab.Padding = new Padding(3);
+            priceAndExpensesTab.Size = new Size(887, 680);
+            priceAndExpensesTab.TabIndex = 1;
+            priceAndExpensesTab.Text = "P and E";
+            priceAndExpensesTab.UseVisualStyleBackColor = true;
+            // 
+            // calculatePriceAndExpensesForm1
+            // 
+            calculatePriceAndExpensesForm1.BackColor = SystemColors.Control;
+            calculatePriceAndExpensesForm1.Location = new Point(0, -3);
+            calculatePriceAndExpensesForm1.Name = "calculatePriceAndExpensesForm1";
+            calculatePriceAndExpensesForm1.Size = new Size(887, 680);
+            calculatePriceAndExpensesForm1.TabIndex = 0;
             // 
             // ViewPort
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1143, 750);
-            Controls.Add(calculateExpensesForm1);
+            Controls.Add(tabControl);
             Controls.Add(panel1);
             Margin = new Padding(4, 5, 4, 5);
             Name = "ViewPort";
-            Text = "Main Menu";
+            Text = "CHE APP";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            tabControl.ResumeLayout(false);
+            oxygenTab.ResumeLayout(false);
+            priceAndExpensesTab.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
         private TextBox mmTitleTextBox;
-        private Button calculateExpensesButton;
-        private Button rentReservationButton;
+        private Button calculatePriceAndExpensesButton;
         private Panel panel1;
         private Button calculateOxygenButton;
-        private CalculateExpensesForm calculateExpensesForm1;
+        private TabControl tabControl;
+        private TabPage oxygenTab;
+        private TabPage priceAndExpensesTab;
+        private CalculateOxygenForm calculateOxygenForm1;
+        private CalculatePriceAndExpensesForm calculatePriceAndExpensesForm1;
     }
 }

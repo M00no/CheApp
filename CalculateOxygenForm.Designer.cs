@@ -77,7 +77,7 @@
             howLongTextBox.Margin = new Padding(4, 5, 4, 5);
             howLongTextBox.Name = "howLongTextBox";
             howLongTextBox.ReadOnly = true;
-            howLongTextBox.Size = new Size(199, 32);
+            howLongTextBox.Size = new Size(212, 32);
             howLongTextBox.TabIndex = 17;
             howLongTextBox.Text = "How Long In Hours";
             howLongTextBox.TextAlign = HorizontalAlignment.Center;
@@ -153,7 +153,7 @@
             // 
             // calculateOxygenButton
             // 
-            calculateOxygenButton.Location = new Point(431, 343);
+            calculateOxygenButton.Location = new Point(523, 289);
             calculateOxygenButton.Margin = new Padding(4, 5, 4, 5);
             calculateOxygenButton.Name = "calculateOxygenButton";
             calculateOxygenButton.Size = new Size(107, 38);
@@ -205,7 +205,7 @@
             Controls.Add(coTitleTextBox);
             Margin = new Padding(4, 5, 4, 5);
             Name = "CalculateOxygenForm";
-            Size = new Size(889, 710);
+            Size = new Size(877, 688);
             ((System.ComponentModel.ISupportInitialize)howLongInHoursNumeric).EndInit();
             ((System.ComponentModel.ISupportInitialize)howManyPeopleNumeric).EndInit();
             ResumeLayout(false);

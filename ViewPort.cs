@@ -12,12 +12,12 @@ namespace CheApp
 
         private void calculateOxygenButton_Click(object sender, EventArgs e)
         {
-            //calculateOxygenMenu1.Show();
+            tabControl.SelectTab(oxygenTab);
         }
 
-        private void settingsButton_Click(object sender, EventArgs e)
+        private void calculatePriceAndExpensesButton_Click(object sender, EventArgs e)
         {
-
+            tabControl.SelectTab(priceAndExpensesTab);
         }
     }
 }

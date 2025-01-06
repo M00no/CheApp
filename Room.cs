@@ -25,7 +25,7 @@
             Discount = discount;
         }
 
-        public (float?, float?, string?) calculateUsedOxygen(int totalPeople, int durationInHour) // Calculates how much oxygen is used and is over
+        public (float?, float?, string?) calculateOxygen(int totalPeople, int durationInHour) // Calculates how much oxygen is used and is over
         {
             if (totalPeople <= Capacity)
             {
@@ -72,6 +72,31 @@
             }
 
             return totalAdditionalExpense;
+        }
+
+        public float calculatePrice(DateOnly beginDate, DateOnly endDate, TimeOnly beginTime, TimeOnly endTime)
+        {
+            int totalDays = endDate.DayNumber - beginDate.DayNumber + 1;
+            int hoursPerDay = (endTime - beginTime).Hours;
+
+            float rentPricePerDay = hoursPerDay * Price;
+            //float discount = calculateDiscount(beginDate, endDate);
+
+            return totalDays * rentPricePerDay;// - discount;
+        }
+
+        private float calculateDiscount(DateOnly beginDate, DateOnly endDate)
+        {
+            int totalFridays = 0;
+
+            for(DateOnly currentDate = beginDate; currentDate <= endDate; currentDate.AddDays(1))
+            {
+                if(currentDate.DayOfWeek == DayOfWeek.Friday) totalFridays++;
+            }
+
+            float discount = Price * totalFridays * (1 - Discount/100);
+
+            return discount;
         }
     }
 }

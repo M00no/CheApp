@@ -28,7 +28,7 @@ namespace CheApp
                 if (roomName != null)
                 {
                     Room room = Entities.rooms[roomName];
-                    (float? oxygenUsed, float? oxygenOver, string? error) result = room.calculateUsedOxygen(
+                    (float? oxygenUsed, float? oxygenOver, string? error) result = room.calculateOxygen(
                         Convert.ToInt32(howManyPeopleNumeric.Value),
                         Convert.ToInt32(howLongInHoursNumeric.Value)
                     );
@@ -46,6 +46,10 @@ namespace CheApp
                     }
                     resultValueTextBox.Text = resultText;
                 }
+            }
+            else
+            {
+                resultValueTextBox.Text = "Choose a room";
             }
         }
 
