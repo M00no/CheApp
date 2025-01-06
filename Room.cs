@@ -6,18 +6,20 @@
         public string Index { get; set; }
         public string Type { get; set; }
         public string Building { get; set; }
+        public int Floor { get; set; }
         public int Volume { get; set; }
         public int Capacity { get; set; }
         public float Price{ get; set; }
         public float Expense { get; set; }
         public float Discount { get; set; }
 
-        public Room(string name, string index, string type, string building, int volume, int capacity, float price, float expense, float discount)
+        public Room(string name, string index, string type, string building, int floor, int volume, int capacity, float price, float expense, float discount)
         {
             Name = name;
             Index = index;
             Type = type;
             Building = building;
+            Floor = floor;
             Volume = volume;
             Capacity = capacity;
             Price = price;

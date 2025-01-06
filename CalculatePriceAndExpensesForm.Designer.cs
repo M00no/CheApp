@@ -51,11 +51,10 @@
             titleTextBox.BorderStyle = BorderStyle.None;
             titleTextBox.Cursor = Cursors.No;
             titleTextBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            titleTextBox.Location = new Point(4, 5);
-            titleTextBox.Margin = new Padding(4, 5, 4, 5);
+            titleTextBox.Location = new Point(3, 3);
             titleTextBox.Name = "titleTextBox";
             titleTextBox.ReadOnly = true;
-            titleTextBox.Size = new Size(463, 48);
+            titleTextBox.Size = new Size(324, 32);
             titleTextBox.TabIndex = 12;
             titleTextBox.Text = "Calculate Price And Expenses";
             titleTextBox.TextAlign = HorizontalAlignment.Center;
@@ -65,11 +64,10 @@
             chooseRoomTextBox.BorderStyle = BorderStyle.None;
             chooseRoomTextBox.Cursor = Cursors.No;
             chooseRoomTextBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            chooseRoomTextBox.Location = new Point(55, 86);
-            chooseRoomTextBox.Margin = new Padding(4, 5, 4, 5);
+            chooseRoomTextBox.Location = new Point(38, 52);
             chooseRoomTextBox.Name = "chooseRoomTextBox";
             chooseRoomTextBox.ReadOnly = true;
-            chooseRoomTextBox.Size = new Size(249, 32);
+            chooseRoomTextBox.Size = new Size(174, 22);
             chooseRoomTextBox.TabIndex = 17;
             chooseRoomTextBox.Text = "Choose Room";
             chooseRoomTextBox.TextAlign = HorizontalAlignment.Center;
@@ -77,21 +75,19 @@
             // roomsListBox
             // 
             roomsListBox.FormattingEnabled = true;
-            roomsListBox.ItemHeight = 25;
-            roomsListBox.Location = new Point(55, 132);
-            roomsListBox.Margin = new Padding(4, 5, 4, 5);
+            roomsListBox.ItemHeight = 15;
+            roomsListBox.Location = new Point(38, 79);
             roomsListBox.Name = "roomsListBox";
-            roomsListBox.Size = new Size(247, 179);
+            roomsListBox.Size = new Size(174, 109);
             roomsListBox.TabIndex = 16;
             roomsListBox.SelectedIndexChanged += roomsListBox_SelectedIndexChanged;
             // 
             // roomInfoValueTextBox
             // 
-            roomInfoValueTextBox.Location = new Point(64, 492);
-            roomInfoValueTextBox.Margin = new Padding(4, 5, 4, 5);
+            roomInfoValueTextBox.Location = new Point(45, 292);
             roomInfoValueTextBox.Name = "roomInfoValueTextBox";
             roomInfoValueTextBox.ReadOnly = true;
-            roomInfoValueTextBox.Size = new Size(297, 186);
+            roomInfoValueTextBox.Size = new Size(209, 113);
             roomInfoValueTextBox.TabIndex = 27;
             roomInfoValueTextBox.Text = "";
             // 
@@ -100,22 +96,20 @@
             roomInfoTextBox.BorderStyle = BorderStyle.None;
             roomInfoTextBox.Cursor = Cursors.No;
             roomInfoTextBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            roomInfoTextBox.Location = new Point(64, 446);
-            roomInfoTextBox.Margin = new Padding(4, 5, 4, 5);
+            roomInfoTextBox.Location = new Point(45, 265);
             roomInfoTextBox.Name = "roomInfoTextBox";
             roomInfoTextBox.ReadOnly = true;
-            roomInfoTextBox.Size = new Size(127, 32);
+            roomInfoTextBox.Size = new Size(89, 22);
             roomInfoTextBox.TabIndex = 26;
             roomInfoTextBox.Text = "Room Info";
             roomInfoTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // resultValueTextBox
             // 
-            resultValueTextBox.Location = new Point(461, 492);
-            resultValueTextBox.Margin = new Padding(4, 5, 4, 5);
+            resultValueTextBox.Location = new Point(323, 292);
             resultValueTextBox.Name = "resultValueTextBox";
             resultValueTextBox.ReadOnly = true;
-            resultValueTextBox.Size = new Size(368, 186);
+            resultValueTextBox.Size = new Size(259, 113);
             resultValueTextBox.TabIndex = 24;
             resultValueTextBox.Text = "";
             // 
@@ -124,28 +118,29 @@
             resultTextBox.BorderStyle = BorderStyle.None;
             resultTextBox.Cursor = Cursors.No;
             resultTextBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            resultTextBox.Location = new Point(461, 446);
-            resultTextBox.Margin = new Padding(4, 5, 4, 5);
+            resultTextBox.Location = new Point(323, 265);
             resultTextBox.Name = "resultTextBox";
             resultTextBox.ReadOnly = true;
-            resultTextBox.Size = new Size(91, 32);
+            resultTextBox.Size = new Size(64, 22);
             resultTextBox.TabIndex = 23;
             resultTextBox.Text = "Result:";
             resultTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // beginDatePicker
             // 
-            beginDatePicker.Location = new Point(461, 132);
+            beginDatePicker.Location = new Point(323, 79);
+            beginDatePicker.Margin = new Padding(2, 2, 2, 2);
             beginDatePicker.Name = "beginDatePicker";
-            beginDatePicker.Size = new Size(300, 31);
+            beginDatePicker.Size = new Size(211, 23);
             beginDatePicker.TabIndex = 28;
             beginDatePicker.ValueChanged += beginDatePicker_ValueChanged;
             // 
             // endDatePicker
             // 
-            endDatePicker.Location = new Point(461, 211);
+            endDatePicker.Location = new Point(323, 127);
+            endDatePicker.Margin = new Padding(2, 2, 2, 2);
             endDatePicker.Name = "endDatePicker";
-            endDatePicker.Size = new Size(300, 31);
+            endDatePicker.Size = new Size(211, 23);
             endDatePicker.TabIndex = 29;
             // 
             // beginDateTextBox
@@ -153,11 +148,10 @@
             beginDateTextBox.BorderStyle = BorderStyle.None;
             beginDateTextBox.Cursor = Cursors.No;
             beginDateTextBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            beginDateTextBox.Location = new Point(461, 92);
-            beginDateTextBox.Margin = new Padding(4, 5, 4, 5);
+            beginDateTextBox.Location = new Point(323, 55);
             beginDateTextBox.Name = "beginDateTextBox";
             beginDateTextBox.ReadOnly = true;
-            beginDateTextBox.Size = new Size(132, 32);
+            beginDateTextBox.Size = new Size(92, 22);
             beginDateTextBox.TabIndex = 32;
             beginDateTextBox.Text = "Begin Date";
             beginDateTextBox.TextAlign = HorizontalAlignment.Center;
@@ -167,11 +161,10 @@
             endDateTextBox.BorderStyle = BorderStyle.None;
             endDateTextBox.Cursor = Cursors.No;
             endDateTextBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            endDateTextBox.Location = new Point(461, 171);
-            endDateTextBox.Margin = new Padding(4, 5, 4, 5);
+            endDateTextBox.Location = new Point(323, 103);
             endDateTextBox.Name = "endDateTextBox";
             endDateTextBox.ReadOnly = true;
-            endDateTextBox.Size = new Size(117, 32);
+            endDateTextBox.Size = new Size(82, 22);
             endDateTextBox.TabIndex = 33;
             endDateTextBox.Text = "End Date";
             endDateTextBox.TextAlign = HorizontalAlignment.Center;
@@ -181,11 +174,10 @@
             beginTimeTextBox.BorderStyle = BorderStyle.None;
             beginTimeTextBox.Cursor = Cursors.No;
             beginTimeTextBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            beginTimeTextBox.Location = new Point(461, 250);
-            beginTimeTextBox.Margin = new Padding(4, 5, 4, 5);
+            beginTimeTextBox.Location = new Point(323, 150);
             beginTimeTextBox.Name = "beginTimeTextBox";
             beginTimeTextBox.ReadOnly = true;
-            beginTimeTextBox.Size = new Size(132, 32);
+            beginTimeTextBox.Size = new Size(92, 22);
             beginTimeTextBox.TabIndex = 34;
             beginTimeTextBox.Text = "Begin Time";
             beginTimeTextBox.TextAlign = HorizontalAlignment.Center;
@@ -195,21 +187,19 @@
             endTimeTextBox.BorderStyle = BorderStyle.None;
             endTimeTextBox.Cursor = Cursors.No;
             endTimeTextBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            endTimeTextBox.Location = new Point(461, 329);
-            endTimeTextBox.Margin = new Padding(4, 5, 4, 5);
+            endTimeTextBox.Location = new Point(323, 197);
             endTimeTextBox.Name = "endTimeTextBox";
             endTimeTextBox.ReadOnly = true;
-            endTimeTextBox.Size = new Size(117, 32);
+            endTimeTextBox.Size = new Size(82, 22);
             endTimeTextBox.TabIndex = 35;
             endTimeTextBox.Text = "End Time";
             endTimeTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // calculateButton
             // 
-            calculateButton.Location = new Point(654, 408);
-            calculateButton.Margin = new Padding(4, 5, 4, 5);
+            calculateButton.Location = new Point(458, 245);
             calculateButton.Name = "calculateButton";
-            calculateButton.Size = new Size(107, 38);
+            calculateButton.Size = new Size(75, 23);
             calculateButton.TabIndex = 36;
             calculateButton.Text = "Calculate";
             calculateButton.UseVisualStyleBackColor = true;
@@ -217,22 +207,24 @@
             // 
             // beginTimePicker
             // 
-            beginTimePicker.Location = new Point(461, 290);
+            beginTimePicker.Location = new Point(323, 174);
+            beginTimePicker.Margin = new Padding(2, 2, 2, 2);
             beginTimePicker.Name = "beginTimePicker";
-            beginTimePicker.Size = new Size(300, 31);
+            beginTimePicker.Size = new Size(211, 23);
             beginTimePicker.TabIndex = 37;
             beginTimePicker.ValueChanged += beginTimePicker_ValueChanged;
             // 
             // endTimePicker
             // 
-            endTimePicker.Location = new Point(461, 369);
+            endTimePicker.Location = new Point(323, 221);
+            endTimePicker.Margin = new Padding(2, 2, 2, 2);
             endTimePicker.Name = "endTimePicker";
-            endTimePicker.Size = new Size(300, 31);
+            endTimePicker.Size = new Size(211, 23);
             endTimePicker.TabIndex = 38;
             // 
             // CalculatePriceAndExpensesForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             Controls.Add(endTimePicker);
@@ -251,8 +243,9 @@
             Controls.Add(chooseRoomTextBox);
             Controls.Add(roomsListBox);
             Controls.Add(titleTextBox);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "CalculatePriceAndExpensesForm";
-            Size = new Size(877, 688);
+            Size = new Size(621, 408);
             ResumeLayout(false);
             PerformLayout();
         }

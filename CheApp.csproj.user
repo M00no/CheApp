@@ -7,6 +7,9 @@
     <Compile Update="CalculateOxygenForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="FindReservationForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="ViewPort.cs">
       <SubType>Form</SubType>
     </Compile>

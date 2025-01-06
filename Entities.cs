@@ -50,8 +50,9 @@ namespace CheApp
                     new Room(
                         entry["name"],
                         entry["index"],
-                        entry["building"],
                         entry["type"],
+                        entry["building"],
+                        Convert.ToInt32(entry["floor"]),
                         Convert.ToInt32(entry["volume"]),
                         Convert.ToInt32(entry["capacity"]),
                         float.Parse(entry["price"]),

@@ -41,17 +41,20 @@ rooms:
   index: P2.123
   type: room
   building: Prisma
+  floor: 2
   volume: 100
   capacity: 27
 - name: Test2
   index: P2.124
   type: workspace
   building: Prisma
+  floor: 2
   volume: 200
   capacity: 4
 - name: Test3
   index: S2.124
   type: public
   building: Spectrum
+  floor: 2
   volume: 200
   capacity: 20
