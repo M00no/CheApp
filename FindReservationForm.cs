@@ -56,7 +56,8 @@ namespace CheApp
             Room? suitableRoom;
             if (chooseBuildingComboBox.SelectedIndex != -1 &&
                 chooseFloorComboBox.SelectedIndex != -1 &&
-                howManyPeopleNumeric.Value > 0)
+                howManyPeopleNumeric.Value > 0 &&
+                durationNumeric.Value > 0)
             {
                 string chosenBuilding = chooseBuildingComboBox.Text;
                 int chosenFloor = chooseFloorComboBox.SelectedIndex;
@@ -96,44 +97,34 @@ namespace CheApp
                 Room room = entry.Value;
                 if (building == room.Building &&
                     floor == room.Floor &&
-                    totalPeople <= room.Capacity)
+                    totalPeople <= room.Capacity &&
+                    !ReservationController.reservations.Any(
+                        reservation => reservation.Room.Index == room.Index &&
+                        doReservationsMeet(beginReservation, endReservation, reservation.BeginReservation, reservation.EndReservation)))
                 {
                     suitableRooms.Add(room);
                 }
             }
 
-            if (suitableRooms.Count == 0)
+            Room? suitableRoom = suitableRooms.OrderBy(room => room.Capacity).FirstOrDefault();
+            if (suitableRoom != null)
             {
-                return null;
+                ReservationController.reservations.Add(new Reservation(suitableRoom, beginReservation, endReservation, totalPeople));
             }
-            else
-            {
-                foreach(Room suitableRoom in suitableRooms.OrderBy(room => room.Capacity))
-                {
-                    if (!ReservationController.reservations.Any(reservation => reservation.Room.Index == suitableRoom.Index))
-                    {
-                        ReservationController.reservations.Add(new Reservation(suitableRoom, beginReservation, endReservation, totalPeople));
-                        return suitableRoom;
-                    }
-                    else
-                    {
-                        foreach(Reservation reservation in ReservationController.reservations)
-                        {
-                            if(reservation.Room.Index == suitableRoom.Index &&
-                                !doReservationsMeet(beginReservation, endReservation, reservation.BeginReservation, reservation.EndReservation))
-                            {
-                                ReservationController.reservations.Add(new Reservation(suitableRoom, beginReservation, endReservation, totalPeople));
-                                return suitableRoom;
-                            }
-                        }
-                    }
-                }
-                return null;
-            }
+            return suitableRoom;
         }
+
 
         private bool doReservationsMeet(DateTime reservation1Begin, DateTime reservation1End, DateTime reservation2Begin, DateTime reservation2End)
         {
+            bool boo = (reservation1Begin >= reservation2Begin && reservation1Begin < reservation2End) ||
+                   (reservation1End > reservation2Begin && reservation1End <= reservation2End) ||
+                   (reservation2Begin >= reservation1Begin && reservation2Begin < reservation1End) ||
+                   (reservation2End > reservation1Begin && reservation2End <= reservation1End);
+
+            string x = "";
+
+
             return (reservation1Begin >= reservation2Begin && reservation1Begin < reservation2End) ||
                    (reservation1End > reservation2Begin && reservation1End <= reservation2End) ||
                    (reservation2Begin >= reservation1Begin && reservation2Begin < reservation1End) ||
