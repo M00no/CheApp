@@ -64,10 +64,10 @@ namespace CheApp
 
                 DateOnly beginDate = DateOnly.FromDateTime(datePicker.Value);
                 TimeOnly beginTime = TimeOnly.FromDateTime(timePicker.Value);
-                DateTime beginDateTime = new DateTime(beginDate, beginTime);
-                DateTime endDateTime = beginDateTime.AddHours((int)durationNumeric.Value);
+                DateTime beginReservation = new DateTime(beginDate, beginTime);
+                DateTime endReservation = beginReservation.AddHours((int)durationNumeric.Value);
 
-                suitableRoom = findRoom(chosenBuilding, chosenFloor, totalPeople);
+                suitableRoom = findRoom(chosenBuilding, chosenFloor, totalPeople, beginReservation, endReservation);
 
                 if (suitableRoom == null)
                 {
@@ -87,7 +87,7 @@ namespace CheApp
             }
         }
 
-        private Room? findRoom(string building, int floor, int totalPeople)
+        private Room? findRoom(string building, int floor, int totalPeople, DateTime beginReservation, DateTime endReservation)
         {
             List<Room> suitableRooms = [];
 
@@ -108,7 +108,27 @@ namespace CheApp
             }
             else
             {
-                return suitableRooms.OrderBy(room => room.Capacity).FirstOrDefault();
+                foreach(Room suitableRoom in suitableRooms.OrderBy(room => room.Capacity))
+                {
+                    if (!ReservationController.reservations.Any(reservation => reservation.Room.Index == suitableRoom.Index))
+                    {
+                        ReservationController.reservations.Add(new Reservation(suitableRoom, beginReservation, endReservation));
+                        return suitableRoom;
+                    }
+                    else
+                    {
+                        foreach(Reservation reservation in ReservationController.reservations)
+                        {
+                            if(reservation.Room.Index == suitableRoom.Index &&
+                                !doEventsMeet(beginReservation, endReservation, reservation.BeginReservation, reservation.EndReservation))
+                            {
+                                ReservationController.reservations.Add(new Reservation(suitableRoom, beginReservation, endReservation));
+                                return suitableRoom;
+                            }
+                        }
+                    }
+                }
+                return null;
             }
         }
 
