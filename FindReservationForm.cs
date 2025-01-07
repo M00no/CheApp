@@ -114,17 +114,8 @@ namespace CheApp
             return suitableRoom;
         }
 
-
         private bool doReservationsMeet(DateTime reservation1Begin, DateTime reservation1End, DateTime reservation2Begin, DateTime reservation2End)
         {
-            bool boo = (reservation1Begin >= reservation2Begin && reservation1Begin < reservation2End) ||
-                   (reservation1End > reservation2Begin && reservation1End <= reservation2End) ||
-                   (reservation2Begin >= reservation1Begin && reservation2Begin < reservation1End) ||
-                   (reservation2End > reservation1Begin && reservation2End <= reservation1End);
-
-            string x = "";
-
-
             return (reservation1Begin >= reservation2Begin && reservation1Begin < reservation2End) ||
                    (reservation1End > reservation2Begin && reservation1End <= reservation2End) ||
                    (reservation2Begin >= reservation1Begin && reservation2Begin < reservation1End) ||
