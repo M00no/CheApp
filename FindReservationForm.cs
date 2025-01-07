@@ -76,8 +76,8 @@ namespace CheApp
                 else
                 {
                     resultValueTextBox.Text = $"""
-                        The suitable room is: {suitableRoom.Name} {suitableRoom.Index}
-                        Reservation is made for 
+                        The suitable room is: {suitableRoom.Name} {suitableRoom.Index}.
+                        Reservation is made for you.
                         """;
                 }
             }
@@ -112,7 +112,7 @@ namespace CheApp
                 {
                     if (!ReservationController.reservations.Any(reservation => reservation.Room.Index == suitableRoom.Index))
                     {
-                        ReservationController.reservations.Add(new Reservation(suitableRoom, beginReservation, endReservation));
+                        ReservationController.reservations.Add(new Reservation(suitableRoom, beginReservation, endReservation, totalPeople));
                         return suitableRoom;
                     }
                     else
@@ -120,9 +120,9 @@ namespace CheApp
                         foreach(Reservation reservation in ReservationController.reservations)
                         {
                             if(reservation.Room.Index == suitableRoom.Index &&
-                                !doEventsMeet(beginReservation, endReservation, reservation.BeginReservation, reservation.EndReservation))
+                                !doReservationsMeet(beginReservation, endReservation, reservation.BeginReservation, reservation.EndReservation))
                             {
-                                ReservationController.reservations.Add(new Reservation(suitableRoom, beginReservation, endReservation));
+                                ReservationController.reservations.Add(new Reservation(suitableRoom, beginReservation, endReservation, totalPeople));
                                 return suitableRoom;
                             }
                         }
@@ -132,12 +132,12 @@ namespace CheApp
             }
         }
 
-        private bool doEventsMeet(DateTime event1Begin, DateTime event1End, DateTime event2Begin, DateTime event2End)
+        private bool doReservationsMeet(DateTime reservation1Begin, DateTime reservation1End, DateTime reservation2Begin, DateTime reservation2End)
         {
-            return (event1Begin >= event2Begin && event1Begin < event2End) ||
-                   (event1End > event2Begin && event1End <= event2End) ||
-                   (event2Begin >= event1Begin && event2Begin < event1End) ||
-                   (event2End > event1Begin && event2End <= event1End);
+            return (reservation1Begin >= reservation2Begin && reservation1Begin < reservation2End) ||
+                   (reservation1End > reservation2Begin && reservation1End <= reservation2End) ||
+                   (reservation2Begin >= reservation1Begin && reservation2Begin < reservation1End) ||
+                   (reservation2End > reservation1Begin && reservation2End <= reservation1End);
         }
     }
 }
